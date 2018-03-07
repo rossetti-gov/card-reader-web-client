@@ -60,3 +60,24 @@
 
   + [How HTTP Headers Get Passed from NGINX to Ruby App](http://blog.honeybadger.io/how-cookies-and-other-http-headers-get-passed-from-nginx-to-rack-and-into-rails/)
   + [How to Deploy Rack App w/ NGINX](https://stackoverflow.com/questions/13030149/how-to-deploy-ruby-rack-app-with-nginx) - Passenger, Thin, Unicorn, etc.
+  + [How to make Sinatra work over HTTPS / SSL](https://stackoverflow.com/questions/3696558/how-to-make-sinatra-work-over-https-ssl)
+
+### Passenger
+
+  + [Deploying a Ruby application on Passenger + Nginx](https://www.phusionpassenger.com/library/deploy/nginx/deploy/ruby/)
+  + [Quickstart: Ruby + Phusion Passenger](https://www.phusionpassenger.com/library/walkthroughs/start/ruby.html)
+  + [Passenger Ruby Bundle Support](https://www.phusionpassenger.com/library/indepth/ruby/bundler.html)
+  + [Ruby debugging console on Passenger + Nginx](https://www.phusionpassenger.com/library/admin/nginx/debugging_console/ruby/)
+
+### Thin
+
+  + [Thin](https://github.com/macournoyer/thin) (identity-idp uses this in development)
+  + [Can I enable SSL in Sinatra with Thin?](https://stackoverflow.com/questions/11405161/can-i-enable-ssl-in-sinatra-with-thin)
+
+### Puma
+
+  + [Puma](https://github.com/puma/puma/)
+
+### Rack
+
++ [Web Server vs. App Server](https://www.justinweiss.com/articles/a-web-server-vs-an-app-server/)
