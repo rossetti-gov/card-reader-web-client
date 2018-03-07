@@ -13,12 +13,11 @@
     + `SSL_CLIENT_CERT`
     + `ssl_client_raw_cert`
   + [SSL Script Rails](https://github.com/brockgr/rack-handler-apache/blob/master/examples/ssl-script-rails), `OpenSSL::SSL::VERIFY_NONE`
+  + [Mini tutorial for configuring client-side SSL certificates](https://gist.github.com/mtigas/952344)
 
 ## Smart Cards
 
-  + [A Case for Native Smart Card Support in Browsers](https://techblog.bozho.net/case-native-smart-card-support-browsers/)
-
-> Now, signature is one thing, identification (TLS client auth) is another. Allegedly, things should work there – PKCS#11 is a standard that should allow TLS client auth to happen with a smart card. Reality is – it doesn’t. You often need a vendor-specific PKCS#11 library. OpenSC, which is a cool tool that works with many smart cards, only works with Firefox and Safari.
+  + [A Case for Native Smart Card Support in Browsers](https://techblog.bozho.net/case-native-smart-card-support-browsers/) - "Now, signature is one thing, identification (TLS client auth) is another. Allegedly, things should work there – PKCS#11 is a standard that should allow TLS client auth to happen with a smart card. Reality is – it doesn’t. You often need a vendor-specific PKCS#11 library. OpenSC, which is a cool tool that works with many smart cards, only works with Firefox and Safari"
 
 ## OpenSC
 
@@ -39,3 +38,11 @@
   + [Web Authentication W3 Working Draft](https://www.w3.org/TR/webauthn/)
   + [Web Cryptography API W3 Recommendation](https://www.w3.org/TR/WebCryptoAPI/)
   + [Browser Support for Web Crypto](https://caniuse.com/#feat=cryptography)
+  + [Security Analysis of the W3C Web Cryptography API (NIST 2016)](https://csrc.nist.gov/csrc/media/events/ssr-2016-security-standardisation-research/documents/presentation-mon-halpin.pdf)
+  + [What’s wrong with in-browser cryptography? (2013)](https://tonyarcieri.com/whats-wrong-with-webcrypto) - "If ample precautions are taken (which includes a large laundry list of things like TLS, CSP, CORS, proper HTTP headers, JS strict mode, and more), this can allow for the successful development of cryptographic applications"
+  + [Web Cryptography API Examples](https://github.com/diafygi/webcrypto-examples)
+
+## Cloudflare CFFSL
+
+  + [Introducing TLS with Client Authentication](https://blog.cloudflare.com/introducing-tls-client-auth/)
+  + [`cfssl`](https://github.com/cloudflare/cfssl) - "command line tool and an HTTP API server for signing, verifying, and bundling TLS certificates"
