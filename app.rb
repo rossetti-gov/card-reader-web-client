@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  'Hello world!'
+  erb :index, locals: { title: "Hello World" }
 end
