@@ -2,8 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.2)
-    daemons (1.2.6)
-    eventmachine (1.2.5)
+    kgio (2.11.2)
     method_source (0.9.0)
     mustermann (1.0.2)
     pry (0.11.3)
@@ -12,16 +11,16 @@ GEM
     rack (2.0.4)
     rack-protection (2.0.1)
       rack
+    raindrops (0.19.0)
     sinatra (2.0.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
       rack-protection (= 2.0.1)
       tilt (~> 2.0)
-    thin (1.7.2)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
     tilt (2.0.8)
+    unicorn (5.4.0)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -29,7 +28,7 @@ PLATFORMS
 DEPENDENCIES
   pry
   sinatra
-  thin
+  unicorn
 
 RUBY VERSION
    ruby 2.3.5p376

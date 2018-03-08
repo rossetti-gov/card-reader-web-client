@@ -24,5 +24,5 @@ bundle install
 Run in development:
 
 ```sh
-bundle exec thin -R config.ru -p 4567 start # then view in browser at localhost:4567
+bundle exec unicorn -c unicorn.rb -E development -D # then view in browser at localhost:4567
 ```

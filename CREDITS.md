@@ -139,6 +139,10 @@ brew services stop nginx
   + [Can I enable SSL in Sinatra with Thin?](https://stackoverflow.com/questions/11405161/can-i-enable-ssl-in-sinatra-with-thin)
   + [Deploying Sinatra on DigitalOcean with Nginx and Thin](https://michaelcarrano.com/blog/deploying-sinatra-app-on-digitalocean-with-nginx-and-thin)
 
+### Unicorn
+
+  + [Sinatra Proxied to Unicorn](http://recipes.sinatrarb.com/p/deployment/nginx_proxied_to_unicorn)
+
 ### Puma
 
   + [Puma](https://github.com/puma/puma/)
