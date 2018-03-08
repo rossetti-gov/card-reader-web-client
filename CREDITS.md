@@ -77,6 +77,8 @@
 ### Puma
 
   + [Puma](https://github.com/puma/puma/)
+  + [Puma with Sinatra](https://github.com/puma/puma#sinatra)
+  + [Build API Prototype in Sinatra in 6 Steps](http://isselguberna.com/build-an-api-prototype-with-sinatra-in-6-steps/)
 
 ### Rack
 
