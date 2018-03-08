@@ -56,6 +56,64 @@
   + [Sinatra Docs](http://sinatrarb.com/intro.html)
   + [Identity OIDC Sinatra Client](https://github.com/18F/identity-openidconnect-sinatra/blob/master/app.rb)
 
+## NGINX
+
+```sh
+brew install nginx
+```
+
+    ######################################################################## 100.0%
+    ==> Pouring nginx-1.13.9.sierra.bottle.tar.gz
+    ==> Caveats
+    Docroot is: /usr/local/var/www
+
+    The default port has been set in /usr/local/etc/nginx/nginx.conf to 8080 so that
+    nginx can run without sudo.
+
+    nginx will load all files in /usr/local/etc/nginx/servers/.
+
+    To have launchd start nginx now and restart at login:
+      brew services start nginx
+    Or, if you don't want/need a background service you can just run:
+      nginx
+    ==> Summary
+    🍺  /usr/local/Cellar/nginx/1.13.9: 23 files, 1.4MB
+
+
+### Running NGINX Locally
+
+Inspect the configuration file:
+
+```sh
+atom /usr/local/etc/nginx/nginx.conf
+```
+
+Start the server to test the installation:
+
+```sh
+brew services start nginx # then visit http://localhost:8080/ to find a welcome message
+```
+
+Stop the server, then make adjustments to the config file:
+
+```sh
+brew services stop nginx
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## NGINX And Ruby/Rack
 
   + [How HTTP Headers Get Passed from NGINX to Ruby App](http://blog.honeybadger.io/how-cookies-and-other-http-headers-get-passed-from-nginx-to-rack-and-into-rails/)
@@ -84,28 +142,19 @@
 
 + [Web Server vs. App Server](https://www.justinweiss.com/articles/a-web-server-vs-an-app-server/)
 
-### NGINX
 
-```sh
-brew install nginx
-```
 
-    ######################################################################## 100.0%
-    ==> Pouring nginx-1.13.9.sierra.bottle.tar.gz
-    ==> Caveats
-    Docroot is: /usr/local/var/www
 
-    The default port has been set in /usr/local/etc/nginx/nginx.conf to 8080 so that
-    nginx can run without sudo.
 
-    nginx will load all files in /usr/local/etc/nginx/servers/.
 
-    To have launchd start nginx now and restart at login:
-      brew services start nginx
-    Or, if you don't want/need a background service you can just run:
-      nginx
-    ==> Summary
-    🍺  /usr/local/Cellar/nginx/1.13.9: 23 files, 1.4MB
+
+
+
+
+
+
+
+
 
 ## Cloud.gov
 
@@ -113,15 +162,6 @@ brew install nginx
   + [Your first cloud.gov deploy](https://cloud.gov/docs/getting-started/your-first-deploy/)
   + [`VCAP_SERVICES`](https://docs.run.pivotal.io/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES)
   + [Deploying to Cloud.gov](https://cloud.gov/docs/apps/deployment/)
-
-
-
-
-
-
-
-
-
 
 [Installing Cloud Foundry](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html#pkg-mac):
 
@@ -153,3 +193,9 @@ Checking logs:
 ```sh
 cf logs card-reader-web-client --recent
 ```
+
+### Cloud Foundry
+
++ [Cloud Foundry Nginx Buildpack](https://github.com/cloudfoundry-community/nginx-buildpack) (deprecated)
++ [Cloud Foundry Staticile Buildpack](https://github.com/cloudfoundry/staticfile-buildpack) (supersedes Nginx Buildpack)
++ [Staticfile Docs](https://docs.cloudfoundry.org/buildpacks/staticfile/index.html) - will detect an `nginx.conf` in the application's root directory
