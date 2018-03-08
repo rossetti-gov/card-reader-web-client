@@ -145,5 +145,11 @@ cf target
 Deploy from any branch (git-unaware):
 
 ```sh
-cf push card-reader-web-client # then visit https://card-reader-web-client.app.cloud.gov/profile !!
+cf push card-reader-web-client # then visit https://card-reader-web-client.app.cloud.gov/
+```
+
+Checking logs:
+
+```sh
+cf logs card-reader-web-client --recent
 ```

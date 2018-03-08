@@ -1,10 +1,10 @@
 require 'sinatra/base'
-require 'pry'
+#require 'pry' unless ENV.fetch("RACK_ENV") == "production"
 
 class CardReaderWebClient < Sinatra::Base
   get '/' do
     #logger.info "SECURE? #{request.secure?}"
-    puts "SECURE? #{request.secure?}"
+    #puts "SECURE? #{request.secure?}"
     erb :index, locals: { title: "PIV/CAC Card Reader (Web Client)" }
   end
 
