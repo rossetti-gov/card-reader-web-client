@@ -106,3 +106,44 @@ brew install nginx
       nginx
     ==> Summary
     🍺  /usr/local/Cellar/nginx/1.13.9: 23 files, 1.4MB
+
+## Cloud.gov
+
+  + [Setting up cloud.gov](https://cloud.gov/docs/getting-started/setup/#set-up-the-command-line)
+  + [Your first cloud.gov deploy](https://cloud.gov/docs/getting-started/your-first-deploy/)
+  + [`VCAP_SERVICES`](https://docs.run.pivotal.io/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES)
+  + [Deploying to Cloud.gov](https://cloud.gov/docs/apps/deployment/)
+
+
+
+
+
+
+
+
+
+
+[Installing Cloud Foundry](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html#pkg-mac):
+
+```sh
+brew tap cloudfoundry/tap
+brew install cf-cli
+```
+
+Logging in:
+
+```sh
+cf login -a api.fr.cloud.gov --sso
+```
+
+Verify target space:
+
+```sh
+cf target
+```
+
+Deploy from any branch (git-unaware):
+
+```sh
+cf push card-reader-web-client # then visit https://card-reader-web-client.app.cloud.gov/profile !!
+```
