@@ -50,3 +50,106 @@
 ## Max.Gov
 
   + [MAX.gov Login](https://login.max.gov/cas/login) - "Users with a working PIV or CAC card can associate their card with an existing MAX account. This provides 2-factor authentication that is more secure than a User ID and Password for accessing sensitive-but-unclassified (SBU) content setup to require MAX Secure+. To associate your PIV or CAC card you will need your MAX UserID and a working password. (Thereafter you will be able to login to MAX using just your PIV or CAC card and its built-in PIN number.)"
+
+## Sinatra
+
+  + [Sinatra Docs](http://sinatrarb.com/intro.html)
+  + [Identity OIDC Sinatra Client](https://github.com/18F/identity-openidconnect-sinatra/blob/master/app.rb)
+
+## NGINX And Ruby/Rack
+
+  + [How HTTP Headers Get Passed from NGINX to Ruby App](http://blog.honeybadger.io/how-cookies-and-other-http-headers-get-passed-from-nginx-to-rack-and-into-rails/)
+  + [How to Deploy Rack App w/ NGINX](https://stackoverflow.com/questions/13030149/how-to-deploy-ruby-rack-app-with-nginx) - Passenger, Thin, Unicorn, etc.
+  + [How to make Sinatra work over HTTPS / SSL](https://stackoverflow.com/questions/3696558/how-to-make-sinatra-work-over-https-ssl)
+
+### Passenger
+
+  + [Deploying a Ruby application on Passenger + Nginx](https://www.phusionpassenger.com/library/deploy/nginx/deploy/ruby/)
+  + [Quickstart: Ruby + Phusion Passenger](https://www.phusionpassenger.com/library/walkthroughs/start/ruby.html)
+  + [Passenger Ruby Bundle Support](https://www.phusionpassenger.com/library/indepth/ruby/bundler.html)
+  + [Ruby debugging console on Passenger + Nginx](https://www.phusionpassenger.com/library/admin/nginx/debugging_console/ruby/)
+
+### Thin
+
+  + [Thin](https://github.com/macournoyer/thin) (identity-idp uses this in development)
+  + [Can I enable SSL in Sinatra with Thin?](https://stackoverflow.com/questions/11405161/can-i-enable-ssl-in-sinatra-with-thin)
+
+### Puma
+
+  + [Puma](https://github.com/puma/puma/)
+  + [Puma with Sinatra](https://github.com/puma/puma#sinatra)
+  + [Build API Prototype in Sinatra in 6 Steps](http://isselguberna.com/build-an-api-prototype-with-sinatra-in-6-steps/)
+
+### Rack
+
++ [Web Server vs. App Server](https://www.justinweiss.com/articles/a-web-server-vs-an-app-server/)
+
+### NGINX
+
+```sh
+brew install nginx
+```
+
+    ######################################################################## 100.0%
+    ==> Pouring nginx-1.13.9.sierra.bottle.tar.gz
+    ==> Caveats
+    Docroot is: /usr/local/var/www
+
+    The default port has been set in /usr/local/etc/nginx/nginx.conf to 8080 so that
+    nginx can run without sudo.
+
+    nginx will load all files in /usr/local/etc/nginx/servers/.
+
+    To have launchd start nginx now and restart at login:
+      brew services start nginx
+    Or, if you don't want/need a background service you can just run:
+      nginx
+    ==> Summary
+    🍺  /usr/local/Cellar/nginx/1.13.9: 23 files, 1.4MB
+
+## Cloud.gov
+
+  + [Setting up cloud.gov](https://cloud.gov/docs/getting-started/setup/#set-up-the-command-line)
+  + [Your first cloud.gov deploy](https://cloud.gov/docs/getting-started/your-first-deploy/)
+  + [`VCAP_SERVICES`](https://docs.run.pivotal.io/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES)
+  + [Deploying to Cloud.gov](https://cloud.gov/docs/apps/deployment/)
+
+
+
+
+
+
+
+
+
+
+[Installing Cloud Foundry](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html#pkg-mac):
+
+```sh
+brew tap cloudfoundry/tap
+brew install cf-cli
+```
+
+Logging in:
+
+```sh
+cf login -a api.fr.cloud.gov --sso
+```
+
+Verify target space:
+
+```sh
+cf target
+```
+
+Deploy from any branch (git-unaware):
+
+```sh
+cf push card-reader-web-client # then visit https://card-reader-web-client.app.cloud.gov/
+```
+
+Checking logs:
+
+```sh
+cf logs card-reader-web-client --recent
+```
