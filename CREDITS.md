@@ -82,6 +82,10 @@ brew install nginx
 
 ### Running NGINX Locally
 
+  + Installing and configuring NGINX on Mac OS w/ homebrew:
+    + [circa 2012](http://learnaholic.me/2012/10/10/installing-nginx-in-mac-os-x-mountain-lion/)
+    + [circa 2015](https://medium.com/@ThomasTan/installing-nginx-in-mac-os-x-maverick-with-homebrew-d8867b7e8a5a)
+
 Inspect the configuration file:
 
 ```sh
@@ -199,3 +203,9 @@ cf logs card-reader-web-client --recent
 + [Cloud Foundry Nginx Buildpack](https://github.com/cloudfoundry-community/nginx-buildpack) (deprecated)
 + [Cloud Foundry Staticile Buildpack](https://github.com/cloudfoundry/staticfile-buildpack) (supersedes Nginx Buildpack)
 + [Staticfile Docs](https://docs.cloudfoundry.org/buildpacks/staticfile/index.html) - will detect an `nginx.conf` in the application's root directory
+
+## Assets
+
+  + [Card Icon Source](https://www.flaticon.com/free-icon/id-card_223436)
+
+<div>Icons made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
