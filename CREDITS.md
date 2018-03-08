@@ -58,6 +58,8 @@
 
 ## NGINX
 
+  + [NGINX Beginner's Guide](http://nginx.org/en/docs/beginners_guide.html)
+
 ```sh
 brew install nginx
 ```
@@ -135,6 +137,7 @@ brew services stop nginx
 
   + [Thin](https://github.com/macournoyer/thin) (identity-idp uses this in development)
   + [Can I enable SSL in Sinatra with Thin?](https://stackoverflow.com/questions/11405161/can-i-enable-ssl-in-sinatra-with-thin)
+  + [Deploying Sinatra on DigitalOcean with Nginx and Thin](https://michaelcarrano.com/blog/deploying-sinatra-app-on-digitalocean-with-nginx-and-thin)
 
 ### Puma
 

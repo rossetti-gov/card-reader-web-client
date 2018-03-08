@@ -4,7 +4,7 @@ An investigation into TLS Client Auth.
 
 ## Installation
 
-Requires Ruby (version ~> 2.3.5) and Bundler (version ~> 1.16.1).
+Requires Ruby (version ~> 2.3.5), Bundler (version ~> 1.16.1), and NGINX (installed via `brew install nginx`).
 
 Install source code:
 
@@ -21,6 +21,8 @@ bundle install
 
 ## Usage
 
+Run in development:
+
 ```sh
-rackup -p 4567 # then view in browser at localhost:4567
+bundle exec thin -R config.ru -p 4567 start # then view in browser at localhost:4567
 ```
