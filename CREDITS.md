@@ -56,35 +56,9 @@
   + [Sinatra Docs](http://sinatrarb.com/intro.html)
   + [Identity OIDC Sinatra Client](https://github.com/18F/identity-openidconnect-sinatra/blob/master/app.rb)
 
-## NGINX And Ruby/Rack
+## NGINX
 
-  + [How HTTP Headers Get Passed from NGINX to Ruby App](http://blog.honeybadger.io/how-cookies-and-other-http-headers-get-passed-from-nginx-to-rack-and-into-rails/)
-  + [How to Deploy Rack App w/ NGINX](https://stackoverflow.com/questions/13030149/how-to-deploy-ruby-rack-app-with-nginx) - Passenger, Thin, Unicorn, etc.
-  + [How to make Sinatra work over HTTPS / SSL](https://stackoverflow.com/questions/3696558/how-to-make-sinatra-work-over-https-ssl)
-
-### Passenger
-
-  + [Deploying a Ruby application on Passenger + Nginx](https://www.phusionpassenger.com/library/deploy/nginx/deploy/ruby/)
-  + [Quickstart: Ruby + Phusion Passenger](https://www.phusionpassenger.com/library/walkthroughs/start/ruby.html)
-  + [Passenger Ruby Bundle Support](https://www.phusionpassenger.com/library/indepth/ruby/bundler.html)
-  + [Ruby debugging console on Passenger + Nginx](https://www.phusionpassenger.com/library/admin/nginx/debugging_console/ruby/)
-
-### Thin
-
-  + [Thin](https://github.com/macournoyer/thin) (identity-idp uses this in development)
-  + [Can I enable SSL in Sinatra with Thin?](https://stackoverflow.com/questions/11405161/can-i-enable-ssl-in-sinatra-with-thin)
-
-### Puma
-
-  + [Puma](https://github.com/puma/puma/)
-  + [Puma with Sinatra](https://github.com/puma/puma#sinatra)
-  + [Build API Prototype in Sinatra in 6 Steps](http://isselguberna.com/build-an-api-prototype-with-sinatra-in-6-steps/)
-
-### Rack
-
-+ [Web Server vs. App Server](https://www.justinweiss.com/articles/a-web-server-vs-an-app-server/)
-
-### NGINX
+  + [NGINX Beginner's Guide](http://nginx.org/en/docs/beginners_guide.html)
 
 ```sh
 brew install nginx
@@ -107,21 +81,98 @@ brew install nginx
     ==> Summary
     🍺  /usr/local/Cellar/nginx/1.13.9: 23 files, 1.4MB
 
+
+### Running NGINX Locally
+
+  + Installing and configuring NGINX on Mac OS w/ homebrew:
+    + [circa 2012](http://learnaholic.me/2012/10/10/installing-nginx-in-mac-os-x-mountain-lion/)
+    + [circa 2015](https://medium.com/@ThomasTan/installing-nginx-in-mac-os-x-maverick-with-homebrew-d8867b7e8a5a)
+
+Inspect the configuration file:
+
+```sh
+atom /usr/local/etc/nginx/nginx.conf
+```
+
+Start the server to test the installation:
+
+```sh
+brew services start nginx # then visit http://localhost:8080/ to find a welcome message
+```
+
+Stop the server, then make adjustments to the config file:
+
+```sh
+brew services stop nginx
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## NGINX And Ruby/Rack
+
+  + [How HTTP Headers Get Passed from NGINX to Ruby App](http://blog.honeybadger.io/how-cookies-and-other-http-headers-get-passed-from-nginx-to-rack-and-into-rails/)
+  + [How to Deploy Rack App w/ NGINX](https://stackoverflow.com/questions/13030149/how-to-deploy-ruby-rack-app-with-nginx) - Passenger, Thin, Unicorn, etc.
+  + [How to make Sinatra work over HTTPS / SSL](https://stackoverflow.com/questions/3696558/how-to-make-sinatra-work-over-https-ssl)
+
+### Passenger
+
+  + [Deploying a Ruby application on Passenger + Nginx](https://www.phusionpassenger.com/library/deploy/nginx/deploy/ruby/)
+  + [Quickstart: Ruby + Phusion Passenger](https://www.phusionpassenger.com/library/walkthroughs/start/ruby.html)
+  + [Passenger Ruby Bundle Support](https://www.phusionpassenger.com/library/indepth/ruby/bundler.html)
+  + [Ruby debugging console on Passenger + Nginx](https://www.phusionpassenger.com/library/admin/nginx/debugging_console/ruby/)
+
+### Thin
+
+  + [Thin](https://github.com/macournoyer/thin) (identity-idp uses this in development)
+  + [Can I enable SSL in Sinatra with Thin?](https://stackoverflow.com/questions/11405161/can-i-enable-ssl-in-sinatra-with-thin)
+  + [Deploying Sinatra on DigitalOcean with Nginx and Thin](https://michaelcarrano.com/blog/deploying-sinatra-app-on-digitalocean-with-nginx-and-thin)
+
+### Unicorn
+
+  + [Sinatra Proxied to Unicorn](http://recipes.sinatrarb.com/p/deployment/nginx_proxied_to_unicorn)
+
+### Puma
+
+  + [Puma](https://github.com/puma/puma/)
+  + [Puma with Sinatra](https://github.com/puma/puma#sinatra)
+  + [Build API Prototype in Sinatra in 6 Steps](http://isselguberna.com/build-an-api-prototype-with-sinatra-in-6-steps/)
+
+### Rack
+
++ [Web Server vs. App Server](https://www.justinweiss.com/articles/a-web-server-vs-an-app-server/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Cloud.gov
 
   + [Setting up cloud.gov](https://cloud.gov/docs/getting-started/setup/#set-up-the-command-line)
   + [Your first cloud.gov deploy](https://cloud.gov/docs/getting-started/your-first-deploy/)
   + [`VCAP_SERVICES`](https://docs.run.pivotal.io/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES)
   + [Deploying to Cloud.gov](https://cloud.gov/docs/apps/deployment/)
-
-
-
-
-
-
-
-
-
 
 [Installing Cloud Foundry](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html#pkg-mac):
 
@@ -153,3 +204,15 @@ Checking logs:
 ```sh
 cf logs card-reader-web-client --recent
 ```
+
+### Cloud Foundry
+
++ [Cloud Foundry Nginx Buildpack](https://github.com/cloudfoundry-community/nginx-buildpack) (deprecated)
++ [Cloud Foundry Staticile Buildpack](https://github.com/cloudfoundry/staticfile-buildpack) (supersedes Nginx Buildpack)
++ [Staticfile Docs](https://docs.cloudfoundry.org/buildpacks/staticfile/index.html) - will detect an `nginx.conf` in the application's root directory
+
+## Assets
+
+  + [Card Icon Source](https://www.flaticon.com/free-icon/id-card_223436)
+
+<div>Icons made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
