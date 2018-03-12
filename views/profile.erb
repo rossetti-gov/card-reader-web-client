@@ -12,14 +12,25 @@
     <h1><%= title %></h1>
     <a href="/">Home</a>
 
-    <% if user[:certs].any? %>
-      <h2>Certificates</h2>
+    <h2>Smart Card</h2>
+    <p>Type: <%= profile[:card] || "OOPS" %></p>
 
-      <% user[:certs].each do |cert| %>
-        <code><%= cert %></code>
-      <% end %>
-    <% else %>
-      <p>Couldn't find any certificates. Please <a href="/profile">try again</a>.</p>
+    <h2>Certificate(s)</h2>
+    <% profile[:certs].each do |cert| %>
+      <h2>Certificate 1</h2>
+      <p>Serial Number: <%= cert[:serial] || "OOPS" %></p>
+
+      <h3>Issuer</h3>
+      <p><%= cert[:issuer] || "OOPS" %></p>
+
+      <h3>Issuance</h3>
+      <p>From: <%= cert[:issue_at] || "OOPS" %> To: <%= cert[:expire_at] || "OOPS" %> </p>
+
+      <h3>Subject</h3>
+      <p>Name: <%= cert[:subject][:name] || "OOPS" %></p>
+      <p>UID: <%= cert[:subject][:uid] || "OOPS" %></p>
+      <p>Email: <%= cert[:subject][:email] || "OOPS" %></p>
+
     <% end %>
   </body>
 </html>

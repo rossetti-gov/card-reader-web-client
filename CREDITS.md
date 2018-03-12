@@ -19,10 +19,39 @@
 
   + [A Case for Native Smart Card Support in Browsers](https://techblog.bozho.net/case-native-smart-card-support-browsers/) - "Now, signature is one thing, identification (TLS client auth) is another. Allegedly, things should work there – PKCS#11 is a standard that should allow TLS client auth to happen with a smart card. Reality is – it doesn’t. You often need a vendor-specific PKCS#11 library. OpenSC, which is a cool tool that works with many smart cards, only works with Firefox and Safari"
 
+
 ## OpenSC
 
   + [OpenSC - Using Smart Cards with Applications](https://github.com/OpenSC/OpenSC/wiki/Using-smart-cards-with-applications)
   + [Installing OpenSC PKCS#11 Module in Firefox, Step by Step](https://github.com/OpenSC/OpenSC/wiki/Installing-OpenSC-PKCS%2311-Module-in-Firefox%2C-Step-by-Step)
+
+Install opensc:
+
+```sh
+brew install opensc
+```
+
+Detect if a card-reader is present:
+
+```sh
+opensc-tool -n
+```
+
+```sh
+pkcs15-tool --list-public-keys
+```
+
+```sh
+pkcs15-tool --read-public-key 1
+```
+
+```sh
+pkcs15-tool --read-certificate 1 | openssl x509 -noout -text
+```
+
+## OpenSSL
+
+  + [Ruby `OpenSSL::X509::Certificate`](https://ruby-doc.org/stdlib-1.9.3/libdoc/openssl/rdoc/OpenSSL/X509/Certificate.html)
 
 ## Web E-Id
 
