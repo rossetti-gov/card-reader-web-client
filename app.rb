@@ -36,7 +36,14 @@ class CardReaderWebClient < Sinatra::Base
     # LOCAL DEMONSTRATION/SIMULATION
     #
     begin
+      puts "TRYING CERT 2..."
       raw_cert = `pkcs15-tool --read-certificate 2` #> "-----BEGIN CERTIFICATE-----\nABC...XYZ==\n-----END CERTIFICATE-----\n
+
+      if raw_cert == "" # handle "Certificate with ID '2' not found."
+        puts "TRYING CERT 1..."
+        raw_cert = `pkcs15-tool --read-certificate 1`
+      end
+
       if raw_cert == ""
         # if card-reader not connected, use cert from file (saves time for testing)
         # prerequisite: save a copy of your email cert to: certs/demo_email_cert.crt

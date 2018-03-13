@@ -73,7 +73,7 @@ class X509Name
   end
 
   def org
-    arr.find{|k,v| k=="O"}[1]
+    arr.find{|k,v| k=="O"}.try(:[], 1) || "OOPS"
   end
 end
 
