@@ -240,8 +240,12 @@ cf logs card-reader-web-client --recent
 + [Cloud Foundry Staticile Buildpack](https://github.com/cloudfoundry/staticfile-buildpack) (supersedes Nginx Buildpack)
 + [Staticfile Docs](https://docs.cloudfoundry.org/buildpacks/staticfile/index.html) - will detect an `nginx.conf` in the application's root directory
 
-## Assets
+## Assets and Design
 
   + [Card Icon Source](https://www.flaticon.com/free-icon/id-card_223436)
 
-<div>Icons made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+> Icons made by [Kirill Kazachek](https://www.flaticon.com/authors/kirill-kazachek) from www.flaticon.com licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+
+### Twitter Bootstrap
+
+  + [Navbar](https://getbootstrap.com/docs/4.0/components/navbar/)
