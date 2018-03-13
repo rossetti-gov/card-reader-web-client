@@ -12,25 +12,15 @@
     <h1><%= title %></h1>
     <a href="/">Home</a>
 
-    <h2>Smart Card</h2>
-    <p>Type: <%= profile[:card] || "OOPS" %></p>
+    <p><%= "SERIAL NUMBER: #{profile.serial_number}" %></p>
+    <p><%= "VALIDITY: #{profile.issue_at.strftime("%Y-%m-%d")} to #{profile.expire_at.strftime("%Y-%m-%d")}" %></p>
+    <p><%= "ISSUER: #{profile.issuer.org} (#{profile.issuer.org_unit})" %></p>
+    <p><%= "CRL: #{profile.crl_url}" %></p>
+    <p><%= "SUBJECT ORG: #{profile.subject.org}" %></p>
+    <p><%= "SUBJECT ORG UNIT: #{profile.subject.org_unit}" %></p>
+    <p><%= "SUBJECT NAME: #{profile.subject.common_name}" %></p>
+    <p><%= "SUBJECT UID: #{profile.subject.uid}" %></p>
+    <p><%= "SUBJECT EMAIL: #{profile.subject_email_address}" %></p>
 
-    <h2>Certificate(s)</h2>
-    <% profile[:certs].each do |cert| %>
-      <h2>Certificate 1</h2>
-      <p>Serial Number: <%= cert[:serial] || "OOPS" %></p>
-
-      <h3>Issuer</h3>
-      <p><%= cert[:issuer] || "OOPS" %></p>
-
-      <h3>Issuance</h3>
-      <p>From: <%= cert[:issue_at] || "OOPS" %> To: <%= cert[:expire_at] || "OOPS" %> </p>
-
-      <h3>Subject</h3>
-      <p>Name: <%= cert[:subject][:name] || "OOPS" %></p>
-      <p>UID: <%= cert[:subject][:uid] || "OOPS" %></p>
-      <p>Email: <%= cert[:subject][:email] || "OOPS" %></p>
-
-    <% end %>
   </body>
 </html>

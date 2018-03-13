@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'openssl'
 require 'pry'
 
+require_relative "./models/profile"
+
 class CardReaderWebClient < Sinatra::Base
   configure do
     enable :logging
@@ -33,38 +35,14 @@ class CardReaderWebClient < Sinatra::Base
     #
     # LOCAL DEMONSTRATION/SIMULATION
     #
-
     begin
-      reader = `opensc-tool -n`
-      card = reader.strip #> "PIV-II card"
-
-      raw_cert = `pkcs15-tool --read-certificate 1` #> "-----BEGIN CERTIFICATE-----\nABC...XYZ==\n-----END CERTIFICATE-----\n
+      raw_cert = `pkcs15-tool --read-certificate 2` #> "-----BEGIN CERTIFICATE-----\nABC...XYZ==\n-----END CERTIFICATE-----\n
       cert = OpenSSL::X509::Certificate.new(raw_cert)
-      cn = cert.subject.to_a.find{|k,v| k=="CN"} #> ["CN", "TEST USER", 19]
-      uid = cert.subject.to_a.find{|k,v| k=="UID"} #> ["UID", "01234567890123", 19]
-
-      profile = {
-        card: card,
-        certs: [
-          {
-            serial: cert.serial.to_s,
-            issuer: cert.issuer.to_a,
-            issue_at: cert.not_before.to_s,
-            expire_at: cert.not_after.to_s,
-            subject: {
-              name: cn[1], #> "TEST USER"
-              uid: uid[1], #> 01234567890123
-              email: "test.user@gmail.com"
-            }
-          }
-        ]
-      }
-
+      profile = Profile.new(cert)
       logger.info profile
-
       erb :profile, locals: {title: "Profile Page", profile: profile}
     rescue => e
-      logger.error "CARD-READING ERROR: #{e.class} - #{e.message}"
+      logger.error "PROFILE ERROR: #{e.class} - #{e.message}"
       redirect to('/') # TODO: session[:flash] = 'OOPS'
     end
   end
