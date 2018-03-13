@@ -37,7 +37,13 @@ class CardReaderWebClient < Sinatra::Base
     #
     begin
       raw_cert = `pkcs15-tool --read-certificate 2` #> "-----BEGIN CERTIFICATE-----\nABC...XYZ==\n-----END CERTIFICATE-----\n
-      cert = OpenSSL::X509::Certificate.new(raw_cert)
+      if raw_cert == ""
+        # if card-reader not connected, use cert from file (saves time for testing)
+        # prerequisite: save a copy of your email cert to: certs/demo_email_cert.crt
+        cert = OpenSSL::X509::Certificate.new(File.read("./certs/demo_email_cert.crt"))
+      else
+        cert = OpenSSL::X509::Certificate.new(raw_cert)
+      end
       profile = Profile.new(cert)
       logger.info profile
       erb :profile, locals: {title: "PIV/CAC Card Reader (Web Client)", profile: profile}
