@@ -1,4 +1,6 @@
 require 'openssl'
+require 'active_support/core_ext/string'
+require 'active_support/core_ext/object/try'
 
 # TODO: refactor these models to inherit from OpenSSL::X509 classes when possible
 
@@ -77,7 +79,7 @@ end
 
 class Subject < X509Name
   def common_name
-    arr.find{|k,v| k=="CN"}[1]
+    arr.find{|k,v| k=="CN"}[1].try(:titlecase)
   end
 
   def uid

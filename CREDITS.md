@@ -248,4 +248,5 @@ cf logs card-reader-web-client --recent
 
 ### Twitter Bootstrap
 
-  + [Navbar](https://getbootstrap.com/docs/4.0/components/navbar/)
+  + [Navbars](https://getbootstrap.com/docs/4.0/components/navbar/)
+  + [Tables](https://getbootstrap.com/docs/4.0/content/tables/)

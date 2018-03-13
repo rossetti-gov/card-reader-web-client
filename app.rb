@@ -40,7 +40,7 @@ class CardReaderWebClient < Sinatra::Base
       cert = OpenSSL::X509::Certificate.new(raw_cert)
       profile = Profile.new(cert)
       logger.info profile
-      erb :profile, locals: {title: "Profile Page", profile: profile}
+      erb :profile, locals: {title: "PIV/CAC Card Reader (Web Client)", profile: profile}
     rescue => e
       logger.error "PROFILE ERROR: #{e.class} - #{e.message}"
       redirect to('/') # TODO: session[:flash] = 'OOPS'

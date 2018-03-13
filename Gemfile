@@ -11,6 +11,8 @@ gem "thin" # Sinatra recommends to install thin, which Sinatra will recognize if
 
 gem "openssl"
 
+gem "activesupport"
+
 group :development do
   gem "pry"
 end

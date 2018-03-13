@@ -1,26 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <!-- TWITTER BOOTSTRAP CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
   <body>
-    <img src="/img/id-card.svg" height="64" alt="an id badge">
-    <h1><%= title %></h1>
-    <a href="/">Home</a>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+        <img src="/img/id-card.svg" width="30" height="30" class="d-inline-block align-top" alt="an id badge">
+        <%= title %>
+      </a>
 
-    <p><%= "SERIAL NUMBER: #{profile.serial_number}" %></p>
-    <p><%= "VALIDITY: #{profile.issue_at.strftime("%Y-%m-%d")} to #{profile.expire_at.strftime("%Y-%m-%d")}" %></p>
-    <p><%= "ISSUER: #{profile.issuer.org} (#{profile.issuer.org_unit})" %></p>
-    <p><%= "CRL: #{profile.crl_url}" %></p>
-    <p><%= "SUBJECT ORG: #{profile.subject.org}" %></p>
-    <p><%= "SUBJECT ORG UNIT: #{profile.subject.org_unit}" %></p>
-    <p><%= "SUBJECT NAME: #{profile.subject.common_name}" %></p>
-    <p><%= "SUBJECT UID: #{profile.subject.uid}" %></p>
-    <p><%= "SUBJECT EMAIL: #{profile.subject_email_address}" %></p>
+      <!--a class="btn btn-secondary" role="button" href="/profile">Login</a-->
+    </nav>
+
+    <div class="container" style="margin-top:20px;">
+      <!--h1>Profile</h1-->
+
+      <h2>User</h2>
+      <table class="table table-hover" style="margin-top:20px;">
+        <tbody>
+          <tr>
+            <th scope="row">Name:</th>
+            <td><%= profile.subject.common_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">Organization:</th>
+            <td><%= "#{profile.subject.org} (#{profile.subject.org_unit})" %></td>
+          </tr>
+          <tr>
+            <th scope="row">Organization UID:</th>
+            <td><%= profile.subject.uid %></td>
+          </tr>
+          <tr>
+            <th scope="row">Email Address:</th>
+            <td><%= profile.subject_email_address %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Certificate</h2>
+      <table class="table table-hover" style="margin-top:20px;">
+        <tbody>
+          <tr>
+            <th scope="row">Issuer:</th>
+            <td><%= "#{profile.issuer.org} (#{profile.issuer.org_unit})" %></td>
+          </tr>
+          <tr>
+            <th scope="row">Issue Date:</th>
+            <td><%= profile.issue_at.strftime("%Y-%m-%d") %></td>
+          </tr>
+          <tr>
+            <th scope="row">Expiration Date:</th>
+            <td><%= profile.expire_at.strftime("%Y-%m-%d") %></td>
+          </tr>
+          <tr>
+            <th scope="row">Revocation List:</th>
+            <td><%= profile.crl_url %></td>
+          </tr>
+          <tr>
+            <th scope="row">Serial Number:</th>
+            <td><%= profile.serial_number %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
 
   </body>
 </html>
