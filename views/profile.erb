@@ -34,48 +34,23 @@
         <tbody>
           <tr>
             <th scope="row">Name:</th>
-            <td><%= profile.subject.common_name %></td>
+            <td><%= "Test User" %></td>
           </tr>
           <tr>
             <th scope="row">Organization:</th>
-            <td><%= "#{profile.subject.org} (#{profile.subject.org_unit})" %></td>
+            <td><%= "US Government (General Services Administration)" %></td>
           </tr>
           <tr>
             <th scope="row">Email Address:</th>
-            <td><%= profile.subject_email_address %></td>
+            <td><%= "test.user@gsa.gov" %></td>
           </tr>
           <tr>
             <th scope="row">UID:</th>
-            <td><%= profile.subject.uid %></td>
+            <td><%= "123456789" %></td>
           </tr>
         </tbody>
       </table>
 
-      <h2>Certificate</h2>
-      <table class="table table-hover" style="margin-top:20px;">
-        <tbody>
-          <tr>
-            <th scope="row">Issuer:</th>
-            <td><%= "#{profile.issuer.org} (#{profile.issuer.org_unit})" %></td>
-          </tr>
-          <tr>
-            <th scope="row">Issue Date:</th>
-            <td><%= profile.issue_at.strftime("%Y-%m-%d") %></td>
-          </tr>
-          <tr>
-            <th scope="row">Expiration Date:</th>
-            <td><%= profile.expire_at.strftime("%Y-%m-%d") %></td>
-          </tr>
-          <tr>
-            <th scope="row">Revocation List:</th>
-            <td><%= profile.crl_url %></td>
-          </tr>
-          <tr>
-            <th scope="row">Serial Number:</th>
-            <td><%= profile.serial_number %></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
 
