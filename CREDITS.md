@@ -154,6 +154,9 @@ brew services stop nginx
   + [How HTTP Headers Get Passed from NGINX to Ruby App](http://blog.honeybadger.io/how-cookies-and-other-http-headers-get-passed-from-nginx-to-rack-and-into-rails/)
   + [How to Deploy Rack App w/ NGINX](https://stackoverflow.com/questions/13030149/how-to-deploy-ruby-rack-app-with-nginx) - Passenger, Thin, Unicorn, etc.
   + [How to make Sinatra work over HTTPS / SSL](https://stackoverflow.com/questions/3696558/how-to-make-sinatra-work-over-https-ssl)
+  + [USWSGI + Rack Quickstart](http://uwsgi-docs.readthedocs.io/en/latest/RackQuickstart.html)
+  + [A Comparison of Popular Ruby Application Servers](https://www.engineyard.com/blog/ruby-app-server-arena-pt1)
+  + [A Comparison of (Rack) Web Servers for Ruby Web Applications](https://www.digitalocean.com/community/tutorials/a-comparison-of-rack-web-servers-for-ruby-web-applications)
 
 ### Passenger
 
@@ -161,6 +164,22 @@ brew services stop nginx
   + [Quickstart: Ruby + Phusion Passenger](https://www.phusionpassenger.com/library/walkthroughs/start/ruby.html)
   + [Passenger Ruby Bundle Support](https://www.phusionpassenger.com/library/indepth/ruby/bundler.html)
   + [Ruby debugging console on Passenger + Nginx](https://www.phusionpassenger.com/library/admin/nginx/debugging_console/ruby/)
+  + [Passenger + Ruby Walkthrough](https://www.phusionpassenger.com/library/walkthroughs/basics/ruby/)
+
+
+```sh
+bundle install # after adding to Gemfile: gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
+bundle exec passenger --version
+bundle exec passenger start # running into errors...
+# ... Cannot checkout session because a spawning error occurred.
+# ... An error occurred while starting up the preloader: it did not write a startup response in time.
+# ... If your app needs more time to start you can increase the Passenger start timeout config option.
+brew uninstall nginx
+passenger-install-nginx-module
+# ... installs nginx (using an interactive prompt)
+# ... my nginx config file is at /Users/USERNAME/conf/nginx.conf
+bundle exec passenger start # runs into the same errors
+```
 
 ### Thin
 
